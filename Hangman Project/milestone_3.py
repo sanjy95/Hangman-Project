@@ -1,28 +1,32 @@
 import random
 
-# Word list and secret word
-word_list = ["mango", "banana", "strawberry", "pineapple", "grape"]
-word = random.choice(word_list)
+def generate_random_word(word_choices):
+    """Selects a random word from the list of available words."""
+    return random.choice(word_choices)
 
-# Step 1: Define check_guess function
-def check_guess(guess):
-    guess = guess.lower()  # Step 2: Convert to lowercase
-    if guess in word:      # Step 3: Check if guess is in word
+def is_valid_letter_input(user_input):
+    """Returns True if the input is a single alphabetical character."""
+    return len(user_input) == 1 and user_input.isalpha()
+
+def prompt_user_for_letter():
+    """Prompts the user to enter a valid single letter."""
+    while True:
+        letter = input("Please enter a single letter: ")
+        if is_valid_letter_input(letter):
+            return letter.lower()
+        else:
+            print("Invalid letter. Please, enter a single alphabetical character.")
+
+def evaluate_guess(guess, secret_word):
+    """Checks if the guessed letter is in the secret word."""
+    if guess in secret_word:
         print(f"Good guess! '{guess}' is in the word.")
     else:
         print(f"Sorry, '{guess}' is not in the word. Try again.")
 
-# Step 1: Define ask_for_input function
-def ask_for_input():
-    while True:
-        guess = input("Please enter a single letter: ")  # Ask user for input
-        if len(guess) == 1 and guess.isalpha():          # Validate input
-            break
-        else:
-            print("Invalid letter. Please, enter a single alphabetical character.")
-    
-    check_guess(guess)  # Step 3: Call check_guess with the valid guess
+# --- Main Execution ---
 
-# Step 4: Call the ask_for_input function to run the program
-ask_for_input()
-
+word_list = ["mango", "banana", "strawberry", "pineapple", "grape"]
+secret_word = generate_random_word(word_list)
+user_guess = prompt_user_for_letter()
+evaluate_guess(user_guess, secret_word)
