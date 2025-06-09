@@ -1,15 +1,22 @@
-# milestone_3.py
+import random
 
-# Step 1: Loop runs continuously
+# List of words
+word_list = ["mango", "banana", "strawberry", "pineapple", "grape"]
+
+# Randomly choose a secret word
+word = random.choice(word_list)
+
 while True:
-    # Step 2: Ask the user for input
+    # Ask the user for a letter
     guess = input("Please enter a single letter: ")
-    
-    # Step 3: Validate input
+
+    # Validate the guess
     if len(guess) == 1 and guess.isalpha():
-        # Step 4: Break the loop if valid
-        print("Good guess!")
-        break
+        # Check if the letter is in the word
+        if guess in word:
+            print(f"Good guess! '{guess}' is in the word.")
+        else:
+            print(f"Sorry, '{guess}' is not in the word. Try again.")
+        break  # Exit the loop after one valid guess
     else:
-        # Step 5: Print error message if invalid
         print("Invalid letter. Please, enter a single alphabetical character.")
