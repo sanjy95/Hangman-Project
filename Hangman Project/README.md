@@ -11,35 +11,37 @@
 
 ## 🎯 Project Description
 
-This is a simple **Hangman-style game** built using Python. The game randomly selects a word from a list, and the user must guess letters one at a time.
+This is a command-line **Hangman game** written in Python. The goal is to guess a randomly selected word one letter at a time. The player loses a life for each incorrect guess and wins if they guess all unique letters before running out of lives.
 
 ### ✅ Milestones Completed:
-- **Milestone 2**: Selected a random word from a list and validated single-letter input.
-- **Milestone 3**: Created a loop to continuously ask for input, validated the guess, and checked if the letter is in the word.
-- **Refactor**: Split logic into two reusable functions: `check_guess()` and `ask_for_input()` to improve readability and structure.
+
+- **Milestone 2**: Basic list setup, random word selection, and input validation.
+- **Milestone 3**: Added a loop to validate user guesses until a correct input is given. Checked if guessed letter is in the word.
+- **Milestone 4**: 
+  - Introduced a `Hangman` class with attributes and methods.
+  - `check_guess()` updates `word_guessed` and tracks remaining lives and letters.
+  - `ask_for_input()` handles user input, validates it, and tracks duplicate guesses.
 
 ### 🧠 What I Learned:
-- How to use functions for cleaner code
-- Input validation using `len()` and `isalpha()`
-- Random selection using the `random` module
-- Basic refactoring techniques
+- Object-oriented programming (classes, methods, and attributes)
+- Input validation and state management
+- Working with lists, strings, and loops
+- Structuring a Python program using milestones
 
 ---
 
 ## 💾 Installation
 
-1. Make sure Python 3 is installed.
-2. Clone this repo or download the files:
-   ```bash
-   git clone https://github.com/your-username/hangman-project.git
-   cd hangman-project
+1. Make sure Python 3 is installed on your machine.
+2. Clone this repo or download the project files:
 
+``
 📁 File Structure
 bash
 Copy
 Edit
 hangman-project/
-├── milestone_2.py         # Selects word and validates input once
-├── milestone_3.py         # Adds loop, word checking, and functional structure
+├── milestone_2.py         # Random word selection and basic input validation
+├── milestone_3.py         # Input loop and guess checking
+├── milestone_4.py         # Hangman class with full logic for guessing and lives
 ├── README.md              # Project documentation
-
